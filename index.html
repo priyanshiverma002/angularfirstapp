@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel=stylesheet href="app/styles/todo.css">
+
+</head>
+<body ng-app="webapp">
+
+<div class="container" ng-controller="TodoCtrl">
+
+<div>
+    <h1>Todo App</h1>
+</div>
+<form>
+    <span>
+        <input type="text" ng-model="newTodo.title"/>
+        <button ng-click="add()">
+            Add Todo
+        </button>
+    </span>
+</form>
+
+<div ng-repeat="todo in todos">
+    <input type="checkbox" ng-model="todo.completed"/>
+    <span ng-class="{completed:todo.completed}">{{todo.title}}</span>
+    <button ng-click="delete(todo)">X</button>
+</div>
+    <div>
+        <button ng-click="clearCompleted()">Clear Completed</button>
+
+    </div>
+<!--
+<div>
+    <input type="checkbox">
+    <span>Todo 2</span>
+    <button>X</button>
+</div>
+
+<div>
+    <input type="checkbox">
+    <span>Todo 3</span>
+    <button>X</button>
+</div>-->
+</div>
+<!--
+
+
+<input ng-model="firstName">
+<span ng-bind="firstName"></span>
+-->
+<script src="js/angular.js"></script>
+<script src="app/script/app.js"></script>
+<script src="app/script/controllers/todo.js"></script>
+
+
+</body>
+</html>
